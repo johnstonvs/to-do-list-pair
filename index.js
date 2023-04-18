@@ -1,32 +1,44 @@
 // Assigns various elements to variables
-let olElem = document.querySelector('ol');
+let olElem = document.querySelector("ol");
 let addButton = document.querySelector("#add");
 let item = document.querySelector("#addItem");
-let form = document.querySelector('form');
+let form = document.querySelector("form");
+let rmButton = document.querySelectorAll("Remove");
 
 const addItem = string => {
-  //creates html element by tag name
   // Creates li element
-  let liElem = document.createElement('li');
+  let liElem = document.createElement("li");
   let liInner = document.createTextNode(`${string}`);
   liElem.appendChild(liInner);
-
   // Creates button element and adds to li element
-  let buttonElem = document.createElement('button');
-  let buttonInner = document.createTextNode('Remove');
+  let buttonElem = document.createElement("button");
+  let buttonInner = document.createTextNode("Remove");
   buttonElem.appendChild(buttonInner);
   liElem.appendChild(buttonElem);
-
+  // create a class attr. for liElm and buttonElm.
+  liElem.classList.add(`${string}`)
+  buttonElem.classList.add(`${string}`)
+  buttonElem.setAttribute("id", "Remove")
   // Appends li element to ol
   olElem.appendChild(liElem);
 }
 
-// add functionality to remove button
+const rmItem = rmClass => {
+    //remove every element that has the class rmClass
+    let a = document.querySelectorAll(`.${rmClass}`);
+    a.remove();
+}
 
 let input;
 item.addEventListener("input", (eventObject) => {input = eventObject.target.value});
 
-addButton.addEventListener("click", (e) => {
-  e.preventDefault();
-  addItem(input);
+rmButton.addEventListener("click", (eventObject) => {
+  console.log(eventObject.srcElement.className);
+  eventObject.preventDefault();
+  rmButtonaddItem(input);
 });
+
+/* rmButton.addEventListener("click", (eventObject) => {
+    rmItem(eventObject.srcElement.className);
+}); */
+
