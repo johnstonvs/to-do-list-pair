@@ -30,17 +30,10 @@ const addItem = string => {
   }))
 }
 
-const rmItem = rmClass => {
-    //remove every element that has the class rmClass
-    let a = document.querySelectorAll(`.${rmClass}`);
-    a.remove();
-}
-
 let input;
 item.addEventListener("input", (eventObject) => {input = eventObject.target.value});
 
 // Adds event listener to add button
 addButton.addEventListener("click", (eventObject) => {
-addItem(input);
+  addItem(input);
 });
-
