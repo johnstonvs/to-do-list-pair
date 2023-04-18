@@ -41,8 +41,6 @@ item.addEventListener("input", (eventObject) => {input = eventObject.target.valu
 
 // Adds event listener to add button
 addButton.addEventListener("click", (eventObject) => {
-console.log(eventObject.srcElement.className);
-eventObject.preventDefault();
 addItem(input);
 });
 
