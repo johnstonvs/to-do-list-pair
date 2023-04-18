@@ -21,6 +21,8 @@ const addItem = string => {
   buttonElem.setAttribute("id", "Remove")
   // Appends li element to ol
   olElem.appendChild(liElem);
+
+  // Adds funcionality to new remove buttons
   rmButtons.push(liElem);
   rmButtons.forEach(item => item.addEventListener("click", (eventObject) => {
     let listElement = document.querySelector(`.${eventObject.srcElement.className}`);
@@ -37,13 +39,9 @@ const rmItem = rmClass => {
 let input;
 item.addEventListener("input", (eventObject) => {input = eventObject.target.value});
 
-  addButton.addEventListener("click", (eventObject) => {
-  console.log(eventObject.srcElement.className);
-  eventObject.preventDefault();
-  addItem(input);
+addButton.addEventListener("click", (eventObject) => {
+console.log(eventObject.srcElement.className);
+eventObject.preventDefault();
+addItem(input);
 });
-
-/* rmButton.addEventListener("click", (eventObject) => {
-    rmItem(eventObject.srcElement.className);
-}); */
 
