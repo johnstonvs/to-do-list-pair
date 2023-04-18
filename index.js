@@ -39,6 +39,7 @@ const rmItem = rmClass => {
 let input;
 item.addEventListener("input", (eventObject) => {input = eventObject.target.value});
 
+// Adds event listener to add button
 addButton.addEventListener("click", (eventObject) => {
 console.log(eventObject.srcElement.className);
 eventObject.preventDefault();
