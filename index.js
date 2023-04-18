@@ -3,7 +3,7 @@ let olElem = document.querySelector("ol");
 let addButton = document.querySelector("#add");
 let item = document.querySelector("#addItem");
 let form = document.querySelector("form");
-let rmButton = document.querySelectorAll("Remove");
+let rmButtons = [];
 
 const addItem = string => {
   // Creates li element
@@ -21,6 +21,11 @@ const addItem = string => {
   buttonElem.setAttribute("id", "Remove")
   // Appends li element to ol
   olElem.appendChild(liElem);
+  rmButtons.push(liElem);
+  rmButtons.forEach(item => item.addEventListener("click", (eventObject) => {
+    let listElement = document.querySelector(`.${eventObject.srcElement.className}`);
+    listElement.remove();
+  }))
 }
 
 const rmItem = rmClass => {
@@ -32,10 +37,10 @@ const rmItem = rmClass => {
 let input;
 item.addEventListener("input", (eventObject) => {input = eventObject.target.value});
 
-rmButton.addEventListener("click", (eventObject) => {
+  addButton.addEventListener("click", (eventObject) => {
   console.log(eventObject.srcElement.className);
   eventObject.preventDefault();
-  rmButtonaddItem(input);
+  addItem(input);
 });
 
 /* rmButton.addEventListener("click", (eventObject) => {
